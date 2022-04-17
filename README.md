@@ -144,7 +144,25 @@ windows只能使用端口转发。
 			proxy_temp_file_write_size 64k;
 	   }
 	}
+# 管理模型
+ 1. 安装Python
+ 2. pip install -r requirements.txt
+ 3. 执行下面命令使其加载服务并启动
+```
+sudo cp ./transponder_manage.service /lib/systemd/system/transponder_manage.service #复制服务文件
+chmod +x /etc/systemd/system/transponder_manage.service # 添加执行权限
+sudo systemctl daemon-reload # 重载系统服务
+systemctl status transponder_manage.service # 看指定服务状态
+systemctl enable transponder_manage.service # 将服务注册为开机启动
+```
 
+ 4. 关于 systemctl 的命令
+```
+systemctl start transponder_manage.service # 启动服务
+systemctl status # 查看所有服务的状态
+systemctl disable transponder_manage.service # 禁用服务开机启动
+systemctl stop stransponder_manage.service # 停止服务
+```
 #### 参与贡献
 
 1. Fork 本项目

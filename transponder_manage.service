@@ -1,0 +1,18 @@
+
+[Unit]
+Description=transponder 管理
+After=syslog.target network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=nobody
+Restart= always
+RestartSec=1mi
+WorkingDirectory=/home/zhengpeng/gitlab_item/CAPTCHA_service
+ExecStart=nohup python transponder_manage.py >/dev/null 2>&1 &
+ExecReload=kill -9 $(ps aux|grep Transponder_Manage|grep -v grep|awk '{print  $2}');nohup python transponder_manage.py >/dev/null 2>&1 &
+LimitNOFILE=1048576
+
+[Install]
+WantedBy=multi-user.target

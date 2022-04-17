@@ -1,0 +1,6 @@
+{
+    "common": {
+        "bind_port": 7001,
+        "vhost_http_port": 8001
+    }
+}

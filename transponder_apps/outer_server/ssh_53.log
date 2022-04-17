@@ -1,0 +1,3 @@
+2022/04/17 10:20:44 start out service file/root/nat_traverse/transponder/transponder_apps/outer_server/ssh_53.json
+2022/04/17 10:20:44 start out service server at unix:///var/run/transponderouter.sock
+2022/04/17 10:20:44 start server for inner service at address tcp://0.0.0.0:9090

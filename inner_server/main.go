@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"ConfigAdapter/JsonConfig"
 	"log"
 	"strings"
@@ -108,7 +109,9 @@ func main() {
 		MaxFreeConn     int
 	}
 	c := &InnerConfig{}
-	err := JsonConfig.Load("inner.config.json", c)
+	confile:=flag.String("config","inner.config.json","config 文件路径")
+	flag.Parse()
+	err := JsonConfig.Load(*confile, c)
 	if err != nil {
 		panic("can not parse config file:inner.config.json")
 	}
